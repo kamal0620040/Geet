@@ -6,6 +6,8 @@ import "./styles/app.scss"
 //Adding Components
 import Player from './components/player';
 import Song from './components/song';
+import Library from './components/library'
+
 //Import Utils
 import savan from "./util";
 
@@ -18,6 +20,7 @@ function App() {
     <div className="App">
       <Song currentSong={currentSong} />
       <Player currentSong={currentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
+      <Library songs={songs} />
     </div>
   );
 }

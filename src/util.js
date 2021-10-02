@@ -179,7 +179,7 @@ function savan(){
           "song_play_count": 20452302,
           "song_language": "hindi",
           "song_has_lyrics": "true",
-          "song_artist": "Arijit Singh, Neeti Mohan, Suzanne D&#039;Mello, Himesh Reshammiya",
+          "song_artist": "Arijit Singh, Neeti Mohan",
           "song_image": "https://c.saavncdn.com/042/Teraa-Surroor-Hindi-2016-500x500.jpg",
           "song_link": "https://www.jiosaavn.com/song/wafa-ne-bewafai/RxgSdCtIZVg",
           "album_link": "https://www.jiosaavn.com/album/teraa-surroor/gZ9qyVlnwTY_",
