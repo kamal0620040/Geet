@@ -1,8 +1,24 @@
-import './styles/app.scss'
+import React,{useState} from "react";
+
+// Import Styles
+import "./styles/app.scss"
+
+//Adding Components
+import Player from './components/player';
+import Song from './components/song';
+//Import Utils
+import savan from "./util";
 
 function App() {
+  //State
+  const [songs,setSongs] = useState(savan());
+  const [currentSong,setCurentSong] = useState(songs[0]);
+  const [isPlaying,setIsPlaying] = useState(false);
   return (
-    <h1>Music Player</h1>
+    <div className="App">
+      <Song currentSong={currentSong} />
+      <Player currentSong={currentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
+    </div>
   );
 }
 
