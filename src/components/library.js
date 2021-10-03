@@ -1,4 +1,3 @@
-import { library } from "@fortawesome/fontawesome-svg-core";
 import React, { useState } from "react";
 import LibrarySong from "./librarySong";
 

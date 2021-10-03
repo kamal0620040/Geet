@@ -4,6 +4,7 @@
     left: 0;
     width: 20rem;
     height: 100%;
+    background-color: white;
     overflow: scroll;
     transform: translateX(-100%);
     transition: all 0.5s ease;
@@ -43,6 +44,7 @@
     // flex-direction: column;
     cursor: pointer;
     padding: 1rem 2rem 1rem 2rem;
+    transition: background-color 0.5s ease;
     img{
         width: 30%;
         border-radius: 5%;
@@ -82,4 +84,10 @@
 .active-library{
     transform: translateX(0%);
     opacity: 1;
+}
+
+@media screen and (max-width:768px){
+    .library{
+        width: 100%;
+    }
 }
