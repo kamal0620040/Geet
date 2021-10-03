@@ -32,7 +32,9 @@ function App() {
   }
   const songEndHandler = async ()=>{
     let currentIndex = songs.findIndex((song)=>song.song_id === currentSong.song_id);
-    await setCurentSong(songs[(currentIndex+1) % songs.length]);
+    if(songs.length !== 0){
+      await setCurentSong(songs[(currentIndex+1) % songs.length]);
+    }
     if(isPlaying){
       audioRef.current.play();
     }

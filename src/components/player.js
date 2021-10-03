@@ -25,13 +25,19 @@ const Player = ({songInfo,setSongInfo,audioRef,currentSong,isPlaying,setIsPlayin
     const skipTrackHandler = async (direction) =>{
         let currentIndex = songs.findIndex((song)=>song.song_id === currentSong.song_id);
         if(direction==="skip-forward"){
-            await setCurentSong(songs[(currentIndex+1) % songs.length]);
+            if(songs.length !== 0){
+                await setCurentSong(songs[(currentIndex+1) % songs.length]);
+            }
         }
         if(direction==="skip-back"){
             if((currentIndex -1 )% songs.length === -1){
-                await setCurentSong(songs[songs.length - 1]);
+                if(songs.length !== 0){
+                    await setCurentSong(songs[songs.length - 1]);
+                }
             }else{
-                await setCurentSong(songs[(currentIndex-1) % songs.length]);
+                if(songs.length !== 0){
+                    await setCurentSong(songs[(currentIndex-1) % songs.length]);
+                }
             }
         }
         if(isPlaying){
