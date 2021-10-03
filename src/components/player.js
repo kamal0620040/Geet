@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlay,faAngleLeft,faAngleRight,faPause} from "@fortawesome/free-solid-svg-icons";
+import { playAudio } from "../reused";
 
 const Player = ({songInfo,setSongInfo,audioRef,currentSong,isPlaying,setIsPlaying,setCurentSong,songs})=>{
     //Event Handler
@@ -34,6 +35,7 @@ const Player = ({songInfo,setSongInfo,audioRef,currentSong,isPlaying,setIsPlayin
                 setCurentSong(songs[(currentIndex-1) % songs.length]);
             }
         }
+        playAudio(isPlaying,audioRef);
     }
     return(
         <div className="player">

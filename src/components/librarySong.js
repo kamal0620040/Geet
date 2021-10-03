@@ -1,17 +1,10 @@
 import React from "react";
+import { playAudio } from "../reused";
 
 const LibrarySong = ({song,setCurentSong,audioRef,isPlaying})=>{
     const songSelectorHandler = ()=>{
         setCurentSong(song);
-
-        if(isPlaying){
-            const playPromise = audioRef.current.play();
-            if(playPromise !== undefined){
-                playPromise.then((audio)=>{
-                    audioRef.current.play();
-                });
-            }
-        }
+        playAudio(isPlaying,audioRef);
         audioRef.current.play();
     }
     return(
