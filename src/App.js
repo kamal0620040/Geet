@@ -34,7 +34,7 @@ function App() {
     <div className="App">
       <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       <Song currentSong={currentSong} />
-      <Player songInfo={songInfo} setSongInfo={setSongInfo} audioRef={audioRef} currentSong={currentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
+      <Player songInfo={songInfo} songs={songs} setCurentSong={setCurentSong} setSongInfo={setSongInfo} audioRef={audioRef} currentSong={currentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
       <Library setSongs={setSongs} songs={songs} setCurentSong={setCurentSong} audioRef={audioRef} isPlaying={isPlaying} libraryStatus={libraryStatus}/>
       <audio onLoadedMetadata={timeUpdate} onTimeUpdate={timeUpdate} ref={audioRef} src={currentSong.download_links[2]}></audio>
     </div>
