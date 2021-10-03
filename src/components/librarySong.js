@@ -1,12 +1,12 @@
 import React from "react";
-import { playAudio } from "../reused";
 
 const LibrarySong = ({song,setCurentSong,audioRef,isPlaying})=>{
-    const songSelectorHandler = ()=>{
-        setCurentSong(song);
-        playAudio(isPlaying,audioRef);
-        audioRef.current.play();
-    }
+    const songSelectorHandler = async ()=>{
+        await setCurentSong(song);
+        if(isPlaying){
+            audioRef.current.play();
+        }
+    };
     return(
         <div onClick={songSelectorHandler} className="library-song">
             <img alt={song.song_name + "Image"} src={song.song_image} />
