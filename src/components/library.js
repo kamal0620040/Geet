@@ -1,7 +1,8 @@
+import { library } from "@fortawesome/fontawesome-svg-core";
 import React, { useState } from "react";
 import LibrarySong from "./librarySong";
 
-const Library = ({songs,setSongs,setCurentSong,audioRef,isPlaying})=>{
+const Library = ({songs,setSongs,setCurentSong,audioRef,isPlaying,libraryStatus})=>{
     
     const [searchSong,setSearchSong] = useState("");
     const onSearchChange = (e) => {
@@ -28,7 +29,7 @@ const Library = ({songs,setSongs,setCurentSong,audioRef,isPlaying})=>{
       };
 
     return(
-        <div className="library">
+        <div className={`library ${libraryStatus ? 'active-library' : '' }`}>
             <h2>Library</h2>
             
             <form className="search-form" onSubmit={handleSubmit}>

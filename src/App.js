@@ -7,6 +7,7 @@ import "./styles/app.scss"
 import Player from './components/player';
 import Song from './components/song';
 import Library from './components/library'
+import Nav from "./components/nav";
 
 //Import Utils
 import savan from "./util";
@@ -22,6 +23,7 @@ function App() {
     currentTime:0,
     duration:0
   });
+  const [libraryStatus,setLibraryStatus] = useState(false);
 
   const timeUpdate = (e)=>{
     const current = e.target.currentTime;
@@ -30,9 +32,10 @@ function App() {
   }
   return (
     <div className="App">
+      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
       <Song currentSong={currentSong} />
       <Player songInfo={songInfo} setSongInfo={setSongInfo} audioRef={audioRef} currentSong={currentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
-      <Library setSongs={setSongs} songs={songs} setCurentSong={setCurentSong} audioRef={audioRef} isPlaying={isPlaying} />
+      <Library setSongs={setSongs} songs={songs} setCurentSong={setCurentSong} audioRef={audioRef} isPlaying={isPlaying} libraryStatus={libraryStatus}/>
       <audio onLoadedMetadata={timeUpdate} onTimeUpdate={timeUpdate} ref={audioRef} src={currentSong.download_links[2]}></audio>
     </div>
   );
