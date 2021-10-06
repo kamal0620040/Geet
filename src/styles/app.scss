@@ -23,7 +23,12 @@ h2,h3{
     margin-left: 30%;
 }
 
+.lyrics-active{
+    margin-left: 30%;
+}
+
 @import "./song";
 @import "./player";
 @import "./library";
 @import "./nav";
+@import "./lyrics"

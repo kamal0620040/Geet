@@ -7,6 +7,7 @@ import "./styles/app.scss"
 import Player from './components/player';
 import Song from './components/song';
 import Library from './components/library'
+import Lyrics from "./components/lyrics";
 import Nav from "./components/nav";
 
 //Import Utils
@@ -24,6 +25,8 @@ function App() {
     duration:0
   });
   const [libraryStatus,setLibraryStatus] = useState(false);
+  const [lyrics,setLyrics] = useState({});
+  const [lyricsStatus,setLyricsStatus] = useState(false);
 
   const timeUpdate = (e)=>{
     const current = e.target.currentTime;
@@ -40,11 +43,12 @@ function App() {
     }
   }
   return (
-    <div className={`App ${libraryStatus ? "library-active" : ""}`}>
-      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
+    <div className={`App ${libraryStatus ? "library-active" : ""} ${lyricsStatus ? "lyrics-active" : ""}`}>
+      <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} lyricsStatus={lyricsStatus} setLyricsStatus={setLyricsStatus} setLyrics={setLyrics} currentSong={currentSong} />
       <Song currentSong={currentSong} />
       <Player songInfo={songInfo} songs={songs} setCurentSong={setCurentSong} setSongInfo={setSongInfo} audioRef={audioRef} currentSong={currentSong} isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
       <Library setSongs={setSongs} songs={songs} setCurentSong={setCurentSong} audioRef={audioRef} isPlaying={isPlaying} libraryStatus={libraryStatus}/>
+      <Lyrics lyricsStatus={lyricsStatus} currentSong={currentSong} lyrics={lyrics} setLyrics={setLyrics} />
       <audio onEnded={songEndHandler} onLoadedMetadata={timeUpdate} onTimeUpdate={timeUpdate} ref={audioRef} src={currentSong.download_links[2]}></audio>
     </div>
   );
