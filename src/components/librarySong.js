@@ -9,10 +9,10 @@ const LibrarySong = ({song,setCurentSong,audioRef,isPlaying})=>{
     };
     return(
         <div onClick={songSelectorHandler} className="library-song">
-            <img alt={song.song_name + "Image"} src={song.song_image} />
+            <img alt={song.name + "Image"} src={song?.image[0]?.url} />
             <div className="song-description">
-                <h3>{song.song_name}</h3>
-                <h4>{song.song_artist}</h4>
+                <h3>{song.name}</h3>
+                <h4>{song?.artists?.all.slice(0, 2).map(artist => artist.name).join(', ')}</h4>
             </div>
         </div>
     );

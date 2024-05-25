@@ -23,7 +23,7 @@ const Player = ({songInfo,setSongInfo,audioRef,currentSong,isPlaying,setIsPlayin
         setSongInfo({...songInfo,currentTime:e.target.value});
     }
     const skipTrackHandler = async (direction) =>{
-        let currentIndex = songs.findIndex((song)=>song.song_id === currentSong.song_id);
+        let currentIndex = songs.findIndex((song)=>song.id === currentSong.id);
         if(direction==="skip-forward"){
             if(songs.length !== 0){
                 await setCurentSong(songs[(currentIndex+1) % songs.length]);

@@ -17,13 +17,14 @@ const Library = ({songs,setSongs,setCurentSong,audioRef,isPlaying,libraryStatus}
     };
 
     const onSearch = (query) => {
-        const url = `https://saavn.me/search?song=${query}`;
+        // const url = `https://saavn.me/search?song=${query}`;
+        const url = `https://saavn.dev/api/search/songs?query=${query}`;
 
         fetch(url)
           .then(results => results.json())
-          .then(data => {
+          .then(res => {
             // console.log(data);
-            setSongs(data);
+            setSongs(res?.data?.results);
           });
       };
 
@@ -41,7 +42,7 @@ const Library = ({songs,setSongs,setCurentSong,audioRef,isPlaying,libraryStatus}
 
             <div className="library-songs">
                 {songs.map((song)=>(
-                <LibrarySong song={song} setSongs={setSongs} key={song.song_id} audioRef={audioRef} isPlaying={isPlaying} setCurentSong={setCurentSong}/> 
+                <LibrarySong song={song} setSongs={setSongs} key={song?.id} audioRef={audioRef} isPlaying={isPlaying} setCurentSong={setCurentSong}/> 
                 ))}
             </div>
         </div>
